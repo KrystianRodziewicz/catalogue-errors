@@ -59,10 +59,20 @@ Kod zapisuje submission.csv, oof_tree_v2.csv, shared/folds.csv, model_manifest.j
 oraz handoff_tree_v2.zip. OOF zawiera target treningowy i nie jest publikowany w repo.
 Manifest w repo to zapis faktycznego uruchomienia Kaggle i pasuje do wysłanego CSV.
 
-Dokładny audyt porównujący dwa uruchomienia Kaggle z tolerancją 1e-6 pozostaje do
-wykonania. Pole reference_not_available w manifeście mówi o braku starego pliku
-do automatycznego porównania. Sam zgodny AUC nie zastępuje porównania przewidywań.
-Wersje bibliotek muszą być zgodne z referencją; na innych środowiskach wynik może się zmienić.
+26 października 2026 r. porównano wcześniejszy plik zgłoszenia z wynikiem
+uruchomienia modelu w nowo utworzonym notebooku Kaggle. Dla wszystkich 10000 ofert
+ID i ich kolejność są zgodne ze wzorem zgłoszenia, przewidywania są skończone i w [0,1].
+Maksymalna różnica przewidywań wynosi 0.0, czyli mieści się w tolerancji 1e-6.
+Pliki CSV są identyczne bajtowo. Wersje bibliotek, parametry modelu oraz hashe danych
+i foldów w manifestach obu uruchomień są zgodne. Szczegóły: reproduction_audit.json.
+
+To porównanie wykonano poza notebookiem na pobranych plikach. Oryginalne manifesty
+pozostają zapisem uruchomień: reference_not_available oznacza, że w czasie wykonania
+nie było pliku w ścieżce oczekiwanej przez wewnętrzny test. Nie oznacza niezgodności
+przewidywań. Audyt plików nie potwierdza samodzielnie ustawienia przełącznika Internet.
+Przed oddaniem zapisz finalną wersję notebooka z Internet OFF oraz dopisz dokładny
+link/numer wybranego zgłoszenia Kaggle. Po zmianie wybranej konfiguracji ponów porównanie.
+Na innych wersjach bibliotek wynik może się zmienić.
 
 ## Źródła
 
