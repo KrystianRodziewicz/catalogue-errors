@@ -10,20 +10,24 @@ import json
 import platform
 import re
 import time
+import zipfile
 from pathlib import Path
 import numpy as np
 import pandas as pd
 import scipy
 import sklearn
 import threadpoolctl
-from threadpoolctl import threadpool_limits
 from sklearn.compose import ColumnTransformer
+from sklearn.decomposition import TruncatedSVD
+from sklearn.ensemble import HistGradientBoostingClassifier
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.impute import SimpleImputer
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import average_precision_score, roc_auc_score
+from sklearn.metrics import average_precision_score
+from sklearn.metrics import roc_auc_score
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import OneHotEncoder, StandardScaler
+from sklearn.preprocessing import OrdinalEncoder
+from threadpoolctl import threadpool_limits
+
 
 SEED = 42
 DATA_DIR = None
@@ -83,7 +87,6 @@ def load_folds(train):
     return table, digest
 
 
-
 def features(df):
     x = df.copy()
     title = x.title.fillna('').astype(str).str.lower()
@@ -108,16 +111,6 @@ def features(df):
     ]
     return x.replace({pd.NA: np.nan})
 
-import numpy as np
-import pandas as pd
-import re
-from sklearn.compose import ColumnTransformer
-from sklearn.decomposition import TruncatedSVD
-from sklearn.ensemble import HistGradientBoostingClassifier
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import OrdinalEncoder
-from sklearn.impute import SimpleImputer
 
 NUMBER_V2 = r'(?:\d+|one|two|three|four|five)'
 WORD_V2 = {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5}
@@ -325,7 +318,6 @@ def main():
         'kaggle_submission_reference': None,
     }
     (OUTPUT_ROOT / 'model_manifest.json').write_text(json.dumps(manifest, indent=2), encoding='utf-8')
-    import zipfile
     handoff_path = OUTPUT_ROOT / 'handoff_tree_v2.zip'
     with zipfile.ZipFile(handoff_path, 'w', compression=zipfile.ZIP_DEFLATED) as archive:
         for local, stored in [
