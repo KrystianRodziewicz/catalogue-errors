@@ -1,0 +1,80 @@
+{
+  "configuration": "tree_v2",
+  "seed": 42,
+  "thread_limit": 4,
+  "versions": {
+    "python": "3.13.15",
+    "numpy": "2.1.3",
+    "pandas": "2.3.3",
+    "sklearn": "1.6.1",
+    "scipy": "1.16.3",
+    "threadpoolctl": "3.6.0"
+  },
+  "folds_sha256": "c6a234966e2b3107f3c24e9d3aa0d565430027cb6e16212ebf612a993ccc6956",
+  "fold_policy": "SHA256(42:seller_id), first 16 hex digits, modulo 5, stored as 1..5",
+  "data_sha256": {
+    "train.csv": "aefc970e5efc4435cecfe76b901149fdd9ffd06bc62a3f62773379902b34195c",
+    "test.csv": "10423bf383cfd0bce44dde6459f48fcfee41a6e7ffbc60f8ba4c01de4fdaae13",
+    "sample_submission.csv": "989f9e1ffdbce58f093f1076b85c988fdbca2dbed35534a004b7944afa5f930a"
+  },
+  "fold_roc_auc": [
+    0.9134154524539878,
+    0.9087803950053612,
+    0.9160328111554561,
+    0.9072076798628818,
+    0.9231127224053557
+  ],
+  "oof_roc_auc": 0.9137317258013836,
+  "oof_average_precision": 0.8318584459533911,
+  "independent_final_estimate": false,
+  "inference": "Mean of five fold models; no full-data refit.",
+  "tree_parameters": {
+    "categorical_features": [
+      24,
+      25,
+      26
+    ],
+    "class_weight": null,
+    "early_stopping": false,
+    "interaction_cst": null,
+    "l2_regularization": 2.0,
+    "learning_rate": 0.06,
+    "loss": "log_loss",
+    "max_bins": 255,
+    "max_depth": null,
+    "max_features": 1.0,
+    "max_iter": 350,
+    "max_leaf_nodes": 15,
+    "min_samples_leaf": 25,
+    "monotonic_cst": null,
+    "n_iter_no_change": 10,
+    "random_state": 42,
+    "scoring": "loss",
+    "tol": 1e-07,
+    "validation_fraction": 0.1,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "tfidf": {
+    "ngram_range": [
+      1,
+      2
+    ],
+    "min_df": 3,
+    "max_features": 20000,
+    "sublinear_tf": true,
+    "dtype": "float32"
+  },
+  "svd": {
+    "n_components": 64,
+    "n_iter": 5,
+    "random_state": 42
+  },
+  "elapsed_seconds": 27.770688613999937,
+  "reproduction_check": {
+    "status": "reference_not_available",
+    "tolerance": 1e-06
+  },
+  "submission_sha256": "31d563767081227139413a9ab88dafc8ebdf151a94f646f50d5084c5fe05c733",
+  "kaggle_submission_reference": null
+}

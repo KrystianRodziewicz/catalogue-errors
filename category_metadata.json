@@ -1,0 +1,36 @@
+{
+  "hypothesis": "Category-text interactions may help identify inconsistent listings.",
+  "change": "Only the category_text/interactions feature branch is removed.",
+  "unchanged": "Logistic regression family and all hyperparameters, training rows, quantity_v1 features, folds.",
+  "classifier_parameters": {
+    "C": 2.0,
+    "class_weight": null,
+    "dual": false,
+    "fit_intercept": true,
+    "intercept_scaling": 1,
+    "l1_ratio": null,
+    "max_iter": 600,
+    "multi_class": "deprecated",
+    "n_jobs": null,
+    "penalty": "l2",
+    "random_state": 42,
+    "solver": "liblinear",
+    "tol": 0.0001,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "preprocessing": "TF-IDF vocabulary, imputation, scaling and encoding fitted within each training fold.",
+  "seed": 42,
+  "versions": {
+    "python": "3.13.15",
+    "numpy": "2.1.3",
+    "pandas": "2.3.3",
+    "sklearn": "1.6.1",
+    "scipy": "1.16.3",
+    "threadpoolctl": "3.6.0"
+  },
+  "folds_sha256": "c6a234966e2b3107f3c24e9d3aa0d565430027cb6e16212ebf612a993ccc6956",
+  "train_sha256": "aefc970e5efc4435cecfe76b901149fdd9ffd06bc62a3f62773379902b34195c",
+  "runtime_definition": "Model creation, fit and validation inference; shared deterministic feature construction and output writing excluded.",
+  "independent_final_estimate": false
+}
