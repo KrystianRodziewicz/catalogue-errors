@@ -5,7 +5,7 @@ Projekt na rekrutację do DSC PJATK, konkurs na Kaggle DSC PJATK Catalogue Quali
 ## Wyniki
 
 - model tree_v2: 0.9137 na walidacji (5 foldów po sprzedawcach), 0.9221 na public leaderboard
-- cechy liczby sztuk z tekstu: z 0.8863 do 0.9150
+- cechy liczby sztuk z tekstu: z 0.8863 do 0.9150 (liczone w środowisku eda, inne wersje bibliotek niż referencyjne 0.9137)
 - połączenia kategorii z tekstem: z 0.6177 do 0.7177 (regresja logistyczna)
 
 ## Pliki
@@ -17,10 +17,30 @@ Projekt na rekrutację do DSC PJATK, konkurs na Kaggle DSC PJATK Catalogue Quali
 
 ## Jak odpalić
 
+Model i eda mają osobne środowiska, żeby biblioteki się nie gryzły.
+
 1. pobierz z Kaggle train.csv, test.csv i sample_submission.csv i wrzuć do data/ (danych nie ma w repo)
-2. odpal model jak w MODEL.md, zapisze outputs/oof_tree_v2.csv
-3. skopiuj ten plik do data/handoff/
-4. pip install -r requirements.txt i odpal notebooks/eda.ipynb
+2. model w .venv-model (więcej w MODEL.md), zapisze outputs/oof_tree_v2.csv
+
+```
+python -m venv .venv-model
+.venv-model\Scripts\activate
+pip install -r requirements-model.txt
+python model_tree_v2.py
+deactivate
+```
+
+3. skopiuj outputs/oof_tree_v2.csv do data/handoff/
+4. eda w .venv, potem odpal notebooks/eda.ipynb
+
+```
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+jupyter lab
+```
+
+Na macOS/Linux zamiast .venv\Scripts\activate jest source .venv/bin/activate (tak samo dla .venv-model)
 
 ## Zespół
 
