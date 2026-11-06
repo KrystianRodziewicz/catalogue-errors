@@ -1,9 +1,12 @@
 # Materiał do raportu: model i eksperyment kategorii
 
-Ten materiał opisuje sprawdzoną konfigurację tree_v2 oraz kontrolowane porównanie
-cech kategorii i tekstu. Można włączyć go do sekcji „Podejście” oraz „Wyniki” raportu.
-To część raportu, a nie kompletny raport zespołu. Nie zastępuje EDA, drugiego
-kontrolowanego porównania ani pięciu analiz pomyłek.
+Część raportu zespołu Team 3: konfiguracja tree_v2, walidacja po sprzedawcach,
+kontrolowane porównanie kategorii z tekstem oraz odtwarzalność. Opis odpowiada
+sprawdzonej konfiguracji zgłoszenia z 26 października 2026 r. Przy składaniu raportu
+należy połączyć go z EDA, porównaniem cech ilości i analizą pięciu pomyłek Krystiana.
+
+Nie zmieniono konfiguracji modelu ani jej wyników. Końcowy wybór zgłoszenia
+na Kaggle oraz opis rzeczywistego wkładu obu osób wymagają uzgodnienia w zespole.
 
 ## Cel i znaczenie etykiety
 
@@ -120,6 +123,19 @@ Tabela zawiera osobno model końcowy i dwie wersje kontrolowanego eksperymentu.
 Porównanie tree_v2 z regresją nie izoluje pojedynczej zmiany: różnią się modelem
 i zestawem cech. Dlatego nie przypisujemy całej różnicy jednej cesze.
 
+## Dlaczego w raporcie występuje kilka różnych wyników
+
+Wynik 0.913732 dotyczy referencyjnego tree_v2 i jego OOF w środowisku Kaggle.
+Wyniki 0.717692 i 0.617712 pochodzą z osobnego, kontrolowanego eksperymentu
+regresji logistycznej. Nie należy przedstawiać ich jako wyników tego samego modelu.
+
+Porównanie cech liczby sztuk wykonane przez Krystiana jest drugim eksperymentem.
+W dostarczonym EDA zapisano dla niego około 0.9150 z cechami i 0.8863 bez nich.
+Oba warianty tego porównania uruchomiono w jednym środowisku, z innymi wersjami
+bibliotek niż referencyjne tree_v2. Różnica względem 0.913732 nie jest dowodem
+poprawy modelu: nie wyizolowano w takim zestawieniu wpływu środowiska.
+Dokładny przebieg, wyniki i wersje tego porównania opisuje część EDA.
+
 ## Ocena konfiguracji tree_v2
 
 Pooled OOF ROC-AUC wynosi 0.913732, a OOF Average Precision
@@ -148,6 +164,26 @@ porównania znajduje się w reproduction_audit.json. Samo pole
 reference_not_available w oryginalnym manifeście dotyczy braku pliku w ścieżce
 wewnętrznego testu podczas wykonania, a nie wyniku tego późniejszego porównania.
 
+## Powiązanie z notebookiem i zgłoszeniem
+
+- Konfiguracja: `tree_v2`, seed 42, średnia predykcji pięciu modeli foldowych.
+- Notebook modelu: [notebookea46d8fc4a](https://www.kaggle.com/code/s35559/notebookea46d8fc4a).
+  Udokumentowane ponowne uruchomienie: zapisana wersja 1.
+  Zwykły link do notebooka może później otwierać nowszą wersję, dlatego numer
+  wersji trzeba zachować w dokumentacji końcowego wyboru.
+- [Lista zgłoszeń zespołu](https://www.kaggle.com/competitions/dsc-pjatk-catalogue-quality-challenge/submissions).
+  Sprawdzony rekord: `submission.csv`, przesłany 26 października 2026 r.,
+  opis `tree_v2 | seller-disjoint CV 0.913732`, publiczny ROC-AUC 0.92212.
+  Jest to strona listy zgłoszeń, nie unikatowy odnośnik do pojedynczego rekordu.
+- SHA-256 sprawdzonego pliku zgłoszenia:
+  `31d563767081227139413a9ab88dafc8ebdf151a94f646f50d5084c5fe05c733`.
+- Repozytorium kodu: [catalogue-errors](https://github.com/KrystianRodziewicz/catalogue-errors).
+
+Te informacje identyfikują sprawdzony wynik. Nie potwierdzają, że zgłoszenie
+zostało już wybrane do końcowej oceny prywatnej. Po decyzji zespołu dokumentacja
+musi wskazywać faktycznie wybrane zgłoszenie oraz odpowiadającą mu konfigurację
+i zapisaną wersję notebooka.
+
 ## Ograniczenia i źródła
 
 Zbiór jest syntetyczny. Wynik nie dowodzi skuteczności wykrywania rzeczywistych
@@ -162,7 +198,7 @@ Kontrolowane porównanie dokumentują 02_Eksperyment_kategoria.ipynb,
 category_comparison.csv i category_metadata.json. OOF i dane ofert pozostają
 prywatne. Instrukcję uruchomienia zawiera MODEL.md.
 
-Przed złożeniem całego raportu należy dołączyć EDA, drugie porównanie cech,
-pięć analiz pomyłek ze wspólną regułą decyzji oraz uzgodniony opis wkładu członków
-zespołu. Trzeba również wskazać dokładny link lub numer wybranego zgłoszenia
-Kaggle oraz finalną zapisaną wersję notebooka.
+Do końcowej wersji zespołowej pozostają: zatwierdzone EDA, drugie porównanie
+cech, pełna prywatna analiza pięciu pomyłek oraz opis rzeczywistego wkładu każdej
+osoby. Dane konkretnych ofert i etykiety nie są częścią publicznego materiału
+modelowego. Wspólne wnioski powinny wynikać z obu eksperymentów i analizy pomyłek.
