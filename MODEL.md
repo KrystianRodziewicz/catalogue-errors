@@ -13,7 +13,35 @@ rozdzielonych po seller_id. Dane: edycja 2, 16000 ofert treningowych i 10000 tes
 
 Publiczny wynik dotyczy 30% testu. Końcowy wynik prywatny pozostaje nieznany.
 OOF wykorzystano do wyboru metody; nie jest niezależną końcową oceną.
-Numer/link wybranego zgłoszenia należy dopisać po ustaleniu finalnych submissions.
+Odnośniki do obecnego zgłoszenia są zapisane poniżej. Ostateczny wybór zgłoszeń
+należy potwierdzić przed końcem konkursu.
+
+## Odnośniki do notebooka i zgłoszenia
+
+- Notebook z ponownym wykonaniem tree_v2: [https://www.kaggle.com/code/s35559/notebookea46d8fc4a](https://www.kaggle.com/code/s35559/notebookea46d8fc4a).
+- Udokumentowana zapisana wersja tego notebooka: **1**, status **Successful**.
+  Link prowadzi do notebooka; numer wersji zapisujemy osobno, ponieważ zwykły
+  adres może w przyszłości wskazywać nowszą wersję.
+- Zgłoszenie znajduje się w zakładce [Submissions konkursu](https://www.kaggle.com/competitions/dsc-pjatk-catalogue-quality-challenge/submissions).
+- Plik: `submission.csv`.
+- Data wysłania: 26 października 2026 r.
+- Opis w Kaggle: `tree_v2 | seller-disjoint CV 0.913732`.
+- Status zgłoszenia: **Complete**.
+- Publiczny ROC-AUC: **0.92212**.
+- SHA-256 wysłanego pliku i zgodnego z nim pliku z ponownego wykonania:
+  `31d563767081227139413a9ab88dafc8ebdf151a94f646f50d5084c5fe05c733`.
+
+Adres zakładki jest odnośnikiem do listy, a nie bezpośrednim adresem pojedynczego
+zgłoszenia. Na przekazanym widoku nie było widocznego numeru zgłoszenia. Powyższe
+dane oraz hash pliku wskazują udokumentowane zgłoszenie bez zgadywania jego numeru.
+Źródła weryfikacji: przekazane pliki CSV i manifesty oraz widoki Kaggle.
+
+Stan na 28 października 2026 r.: na przekazanym widoku wybrano ręcznie **0 z 2**
+zgłoszeń do końcowej oceny. Ten opis dokumentuje obecne zgłoszenie tree_v2;
+nie oznacza decyzji zespołu o finalnym wyborze. Przed końcem konkursu należy
+potwierdzić wybór i zaktualizować ten opis, jeżeli konfiguracja lub zgłoszenie się zmienią.
+Oryginalne manifesty uruchomień zachowujemy bez zmian; te odnośniki uzupełniają
+ich dokumentację.
 
 ## Kaggle
 
@@ -117,8 +145,8 @@ To porównanie wykonano poza notebookiem na pobranych plikach. Oryginalne manife
 pozostają zapisem uruchomień: reference_not_available oznacza, że w czasie wykonania
 nie było pliku w ścieżce oczekiwanej przez wewnętrzny test. Nie oznacza niezgodności
 przewidywań. Audyt plików nie potwierdza samodzielnie ustawienia przełącznika Internet.
-Przed oddaniem zapisz finalną wersję notebooka z Internet OFF oraz dopisz dokładny
-link/numer wybranego zgłoszenia Kaggle. Po zmianie wybranej konfiguracji ponów porównanie.
+Przed oddaniem potwierdź wersję finalnego notebooka z Internet OFF i wybór zgłoszenia
+w sekcji odnośników powyżej. Po zmianie wybranej konfiguracji ponów porównanie.
 Na innych wersjach bibliotek wynik może się zmienić.
 
 ## Źródła
